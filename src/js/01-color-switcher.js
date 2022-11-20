@@ -28,13 +28,15 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+function changeBodyColor() { 
+    const color = getRandomHexColor();
+    refs.body.style.backgroundColor = color;
+}
+
 function onStartBtn() { 
     showSuccessNotification();
     refs.startBtn.setAttribute('disabled', true);
-    intervalId = setInterval(() => {
-    const color = getRandomHexColor();
-  refs.body.style.backgroundColor = color;
-  }, TIME_INTERVAL);
+    intervalId = setInterval(changeBodyColor, TIME_INTERVAL);
 };
 
 function onStopBtn() { 
