@@ -6,6 +6,7 @@ const refs = {
     stopBtn: document.querySelector("button[data-stop]"),
     body: document.querySelector("body"),
 }
+const TIME_INTERVAL = 1000;
 let intervalId = null;
 let timerId = null;
 
@@ -33,7 +34,7 @@ function onStartBtn() {
     intervalId = setInterval(() => {
     const color = getRandomHexColor();
   refs.body.style.backgroundColor = color;
-  }, 1000);
+  }, TIME_INTERVAL);
 };
 
 function onStopBtn() { 
@@ -43,8 +44,8 @@ function onStopBtn() {
 
 function showSuccessNotification() { 
     timerId = setTimeout(() => {
-        toastr.success("Колорпікер запущено!");
-    }, 1000);
+        toastr.success("Колорсвітчер запущено!");
+    }, TIME_INTERVAL);
 }
 
 function getRandomHexColor() {
