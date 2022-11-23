@@ -33,12 +33,10 @@ const options = {
 
 flatpickr("#datetime-picker", options);
 
-
-refs.startBtn.setAttribute('disabled', true);
-
 function onCountdown(e) {
   idInterval = setInterval(() => {
     refs.input.setAttribute('disabled', true);
+    refs.startBtn.setAttribute('disabled', true);
     currentTime = Date.now();
     remainTime = selectedTime - currentTime;
     changeCountdown(remainTime);
