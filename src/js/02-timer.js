@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 
 const refs = {
   startBtn: document.querySelector("button[data-start]"),
+  input: document.querySelector("#datetime-picker"),
   days: document.querySelector("[data-days]"),
   hours: document.querySelector("[data-hours]"),
   minutes: document.querySelector("[data-minutes]"),
@@ -35,8 +36,9 @@ flatpickr("#datetime-picker", options);
 
 refs.startBtn.setAttribute('disabled', true);
 
-function onCountdown() {
+function onCountdown(e) {
   idInterval = setInterval(() => {
+    refs.input.setAttribute('disabled', true);
     currentTime = Date.now();
     remainTime = selectedTime - currentTime;
     changeCountdown(remainTime);
