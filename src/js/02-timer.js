@@ -16,6 +16,8 @@ let currentTime = null;
 let selectedTime = null;
 let idInterval = null;
 
+Notiflix.Notify.warning('Please choose a date for the countdown');
+
 const options = {
   enableTime: true,        //включает выбор времени
   time_24hr: true,         //Displays time picker in 24 hour mode without AM/PM selection when enabled.
