@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 const refs = {
   startBtn: document.querySelector("button[data-start]"),
@@ -14,8 +15,6 @@ let currentTime = null;
 let selectedTime = null;
 let idInterval = null;
 
-
-//refs.startBtn.removeAttribute('disabled');
 const options = {
   enableTime: true,        //включает выбор времени
   time_24hr: true,         //Displays time picker in 24 hour mode without AM/PM selection when enabled.
@@ -23,7 +22,7 @@ const options = {
   minuteIncrement: 1,      //Adjusts the step for the minute input (incl. scrolling)
    onClose(selectedDates) {
     if (selectedDates[0].getTime() < options.defaultDate.getTime()) {
-      return alert('Please choose a date in the future');
+      return Notiflix.Notify.failure('Please choose a date in the future');
     }
     console.log(selectedDates[0]);
     refs.startBtn.removeAttribute('disabled');
