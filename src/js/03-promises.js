@@ -29,7 +29,7 @@ function onError(result) {
 
 function createPromise(position, delay) {
 
-  const promise = new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
     setTimeout(() => {
     if (shouldResolve) {
@@ -38,7 +38,6 @@ function createPromise(position, delay) {
     reject(`Rejected promise ${position} in ${delay}ms`);
   }, delay)
   });
-  return promise;
 };
 
 
